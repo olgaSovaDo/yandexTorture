@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18e5de9a-c562-46af-b497-c0c6a4b1e179" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/YandexSpellerInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/YandexSpellerInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/YandexSpellerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/YandexSpellerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/TestData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/TestData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/YandexSpellerInputs$Language.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/YandexSpellerInputs$Language.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/YandexSpellerOutputs$ErrorCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/YandexSpellerOutputs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/YandexSpellerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/YandexSpellerTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,10 +25,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my-jdi-dark-project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Olga_Solovyeva\WORK\study\yandex-torture" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

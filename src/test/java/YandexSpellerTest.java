@@ -132,11 +132,7 @@ public class YandexSpellerTest {
 
         System.out.println(resp.jsonPath().getList("$"));
         System.out.println("hz1");
-        System.out.println(resp.jsonPath().getList("$.."));
-        System.out.println(resp.jsonPath().getString("code"));
-        System.out.println(resp.jsonPath().getString("pos"));
         System.out.println(resp.jsonPath().getString("word"));
-        System.out.println("hz2");
         System.out.println(resp.jsonPath().getString("s"));
 
 //        assertEquals(resp.jsonPath().getString("word"), wrongText);
@@ -147,12 +143,11 @@ public class YandexSpellerTest {
 
         System.out.println("hz");
         System.out.println(resp.jsonPath().getList("word"));
-        System.out.println("hz");
         System.out.println(resp.jsonPath().getList("s"));
     }
 
     @Test(description = "test 4 - the whole response")
-    void getXZ() {
+    void getResults4() {
         Response response =
                 YandexSpellerRest.doGetExtract(
                         YandexSpellerRest.YANDEX_SPELLER_API_URI,
@@ -166,20 +161,35 @@ public class YandexSpellerTest {
         assertEquals(jsonResponse.toString(), "[{col=0, code=1, s=[torture, tortured, torturer], len=8, pos=0, row=0, word=torturee}]");
     }
 
-//    @Test(description = "test 5 ")
-//    void getXZ2() {
-//        Response response =
-//                YandexSpellerRest.doGetExtract(
-//                        YandexSpellerRest.YANDEX_SPELLER_API_URI,
-//                        "LOnDon",
-//                        YandexSpellerInputs.Language.EN,
-//                        YandexSpellerInputs.Format.PLAIN);
-//
-//        List<String> jsonResponse = response.jsonPath().getList("$");
-//        System.out.println(jsonResponse);
-//        assertEquals(jsonResponse.size(), 1, "Incorrect jsonResponse's size");
-////        assertEquals(jsonResponse.toString(), "[{col=0, code=1, s=[torture, tortured, torturer], len=8, pos=0, row=0, word=torturee}]");
-//    }
+    @DataProvider
+    public Object[][] testCases5() {
+        return new Object[][]{
+                {YandexSpellerInputs.Language.RU.getLanguage()},
+                {YandexSpellerInputs.Language.EN.getLanguage()},
+        };
+    }
+    @Test(description = "test 5 - wrong sentence", dataProvider = "testCases5")
+    void getResults5(String lang) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put(YandexSpellerInputs.TEXT, TestData.WRONG_TEXT_4); // "triis"
+        params.put(YandexSpellerInputs.LANG, lang);
+
+        Response resp = new YandexSpellerRest()
+                .getWithParams(params);
+
+        System.out.println("hz1");
+        System.out.println(resp.jsonPath().getString("s"));
+        System.out.println("hz2");
+
+        if (lang.equals("ru")) {
+            assertEquals(resp.jsonPath().getString("word").toString(), "[tries]", "xoxoxo");
+            assertEquals(resp.jsonPath().getString("s"), TestData.RETURNED_TEXT_4, "xaxaxa");
+        } else {
+            assertEquals(resp.jsonPath().getString(""), "[]");
+//                .body("", Matchers.hasSize(0));
+        }
+    }
+
 
 
 

@@ -10,10 +10,10 @@ public class YandexSpellerInputs {
         RU("ru"),
         UK("uk"),
         EN("en");
-        private String languageCode;
-        public String getLanguage() {return languageCode;}
+        private String lang;
+        public String getLanguage() {return lang;}
         Language(String lang) {
-            this.languageCode = lang;
+            this.lang = lang;
         }
     }
 

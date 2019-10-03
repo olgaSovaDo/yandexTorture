@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18e5de9a-c562-46af-b497-c0c6a4b1e179" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/YandexAssertions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/YandexSpellerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/YandexSpellerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/YandexSpellerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/YandexSpellerTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1RbZU7XX7xIZ6MkcvPf82bGEiDM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jdi-light" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -47,11 +57,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/Olga_Solovyeva/WORK/study/yandex-torture/src/test/resources/general.xml">
+  <component name="RunManager" selected="TestNG.YandexSpellerTest.getResults4">
     <configuration name="C:/Users/Olga_Solovyeva/WORK/study/yandex-torture/src/test/resources/general.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="yandex-torture" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/general.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="YandexSpellerTest.getResults31 (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="yandex-torture" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="YandexSpellerTest" />
+      <option name="METHOD_NAME" value="getResults31" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -70,23 +92,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="YandexSpellerTest.getResults5 (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="YandexSpellerTest.getResults4" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="yandex-torture" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="YandexSpellerTest" />
-      <option name="METHOD_NAME" value="getResults5" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="YandexSpellerTest.getResults5 (2)" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="yandex-torture" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="YandexSpellerTest" />
-      <option name="METHOD_NAME" value="getResults5" />
+      <option name="METHOD_NAME" value="getResults4" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -108,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/Olga_Solovyeva/WORK/study/yandex-torture/src/test/resources/general.xml" />
-        <item itemvalue="TestNG.YandexSpellerTest.getResults5" />
-        <item itemvalue="TestNG.YandexSpellerTest.getResults5 (2)" />
-        <item itemvalue="TestNG.YandexSpellerTest.getResults5 (1)" />
+        <item itemvalue="TestNG.YandexSpellerTest.getResults4" />
+        <item itemvalue="TestNG.YandexSpellerTest.getResults31 (1)" />
         <item itemvalue="TestNG.YandexSpellerTest.getResults31" />
+        <item itemvalue="TestNG.YandexSpellerTest.getResults5" />
+        <item itemvalue="TestNG.C:/Users/Olga_Solovyeva/WORK/study/yandex-torture/src/test/resources/general.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -139,31 +149,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/YandexSpellerTest.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/YandexSpellerTest.java</url>
-          <line>181</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/YandexSpellerTest.java</url>
-          <line>185</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/YandexSpellerTest.java</url>
-          <line>187</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

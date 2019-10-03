@@ -1,21 +1,23 @@
 import io.restassured.RestAssured;
 
 import io.restassured.http.ContentType;
-import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import service.YandexAssertions;
 import service.TestData;
 import service.YandexSpellerInputs;
 import service.YandexSpellerRest;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat; // cool asserts
 import static org.hamcrest.Matchers.*;
-import static org.testng.Assert.assertEquals;
+//import static org.testng.Assert.assertEquals;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -115,8 +117,8 @@ public class YandexSpellerTest {
     public Object[][] testCases31() {
         return new Object[][]{
                 {"1", TestData.WRONG_TEXT_1, TestData.RETURNED_TEXT_1},
-//                {"2", TestData.WRONG_TEXT_2, TestData.RETURNED_TEXT_2},
-//                {"3", TestData.WRONG_TEXT_3, TestData.RETURNED_TEXT_3},
+                {"2", TestData.WRONG_TEXT_2, TestData.RETURNED_TEXT_2},
+                {"3", TestData.WRONG_TEXT_3, TestData.RETURNED_TEXT_3},
         };
     }
     @Test(description = "test 31 - use functions and jsonPath()", dataProvider = "testCases31")
@@ -130,20 +132,21 @@ public class YandexSpellerTest {
         Response resp = new YandexSpellerRest()
                 .getWithParams(params);
 
-        System.out.println(resp.jsonPath().getList("$"));
-        System.out.println("hz1");
-        System.out.println(resp.jsonPath().getString("word"));
-        System.out.println(resp.jsonPath().getString("s"));
+        YandexAssertions.checkTimeStatusJson(resp);
 
-//        assertEquals(resp.jsonPath().getString("word"), wrongText);
-//        assertEquals(resp.jsonPath().getList("word").toString(), wrongText);
-//        assertEquals(resp.jsonPath().getList("s"), TestData.RETURNED_TEXT_1);
-//
-//        List<Object> nse = resp.jsonPath().getList("word");
+//        System.out.println(resp.jsonPath().getList("$"));
+//        System.out.println(resp.jsonPath().getList(".").get(0));
+//        System.out.println(resp.jsonPath().getString("word"));
+//        System.out.println(resp.jsonPath().getList("s").get(0));
 
-        System.out.println("hz");
-        System.out.println(resp.jsonPath().getList("word"));
-        System.out.println(resp.jsonPath().getList("s"));
+        assertThat(resp.jsonPath().getList("word").get(0)).isEqualTo(wrongText);// cool asserts assertj
+        assertThat(resp.jsonPath().getList("s").get(0)).isEqualTo(Arrays.asList(returnedText));// cool asserts assertj
+
+        //=======================================
+        // To get rid of list:
+//        HashMap hm = (HashMap)resp.jsonPath().getList(".").get(0);
+//        System.out.println(hm.get("s"));
+        //=======================================
     }
 
     @Test(description = "test 4 - the whole response")
@@ -157,8 +160,12 @@ public class YandexSpellerTest {
 
         List<String> jsonResponse = response.jsonPath().getList("$");
 //        System.out.println(jsonResponse);
-        assertEquals(jsonResponse.size(), 1, "Incorrect jsonResponse's size");
-        assertEquals(jsonResponse.toString(), "[{col=0, code=1, s=[torture, tortured, torturer], len=8, pos=0, row=0, word=torturee}]");
+        assertThat(jsonResponse.size()).isEqualTo(1);
+        assertThat(jsonResponse.toString()).isEqualTo("[{col=0, code=1, s=[torture, tortured, torturer], len=8, pos=0, row=0, word=torturee}]");
+
+//        assertEquals(jsonResponse.size(), 1, "Incorrect jsonResponse's size");
+//        assertEquals(jsonResponse.toString(), "[{col=0, code=1, s=[torture, tortured, torturer], len=8, pos=0, row=0, word=torturee}]");
+
     }
 
     @DataProvider
@@ -171,25 +178,25 @@ public class YandexSpellerTest {
     @Test(description = "test 5 - wrong sentence", dataProvider = "testCases5")
     void getResults5(String lang) {
         HashMap<String, Object> params = new HashMap<>();
-        params.put(YandexSpellerInputs.TEXT, TestData.WRONG_TEXT_4); // "triis"
+        params.put(YandexSpellerInputs.TEXT, TestData.WRONG_TEXT_4);
         params.put(YandexSpellerInputs.LANG, lang);
 
         Response resp = new YandexSpellerRest()
                 .getWithParams(params);
 
-        System.out.println("hz1");
-        System.out.println(resp.jsonPath().getString("s"));
-        System.out.println("hz2");
+        YandexAssertions.checkTimeStatusJson(resp);
 
         if (lang.equals("ru")) {
-            assertEquals(resp.jsonPath().getString("word").toString(), "[tries]", "xoxoxo");
-            assertEquals(resp.jsonPath().getString("s"), TestData.RETURNED_TEXT_4, "xaxaxa");
+            assertThat(resp.jsonPath().getList("word").get(0)).isEqualTo("tries");
+            assertThat(resp.jsonPath().getList("s").get(0)).isEqualTo(Arrays.asList(TestData.RETURNED_TEXT_4));
+
+//            assertEquals(resp.jsonPath().getString("word").toString(), "[tries]", "xoxoxo");
+//            assertEquals(resp.jsonPath().getString("s"), TestData.RETURNED_TEXT_4, "xaxaxa");
         } else {
-            assertEquals(resp.jsonPath().getString(""), "[]");
-//                .body("", Matchers.hasSize(0));
+            assertThat(resp.jsonPath().getList("$")).isEmpty();
+//            assertEquals(resp.jsonPath().getString(""), "[]");
         }
     }
-
 
 
 
